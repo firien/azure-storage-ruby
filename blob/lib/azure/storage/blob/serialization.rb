@@ -260,6 +260,8 @@ module Azure::Storage
         props[:committed_count] = headers["x-ms-blob-committed-block-count"].to_i if headers["x-ms-blob-committed-block-count"]
         props[:incremental_copy] = headers["x-ms-incremental-copy"].to_s == "true" if headers["x-ms-incremental-copy"]
 
+        props[:version_id] = headers["x-ms-version-id"] if headers["x-ms-version-id"]
+
         props
       end
 
